@@ -1,11 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
 import os
-import toml
+from dotenv import load_dotenv
 
-# Load secrets from secrets.toml
-secrets = toml.load("secrets.toml")
-GEMINI_API_KEY = secrets["GEMINI_API_KEY"]
+load_dotenv()
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
